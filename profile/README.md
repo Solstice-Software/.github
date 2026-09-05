@@ -3,12 +3,12 @@
 
 # Secure Solutions: Cleanly Engineered
 
-[Solstice Software](https://solstice.software/ "Our primary website") is a tiny security research "firm" (emphasis on the air quotes) which seeks to make a few ripples in the vast cybersecurity lake through independent security research, software engineering, and occasional consulting services.
+[Solstice Software](https://solstice.software/ "Our primary website") is an American security research and development company that seeks to make a few ripples in the vast cybersecurity lake. Our endeavors include independent security research, meticulously curating powerful security software-as-a-service products, and occasional consulting services.
 
 It produces high-quality projects for public and private use of its own and that of others.
 
 Solstice Software will always be:
-- 🏃‍♂️ **Active & Reachable**: Drop a line any time at _services[@]solstice.software_.
+- 🏃‍♂️ **Active & Reachable**: Drop a line any time to _services[@]solstice.software_.
 - 📂 **Open-Source**: Proprietary software is _really_ 1995. Projects work best when the greatest and most passionate minds freely collaborate.
 - 🔍 **Meticulous & Clean**: Focused on detail and quality in all things, not just "where it counts".
 - 📈 **Innovating through R&D**: It Just Works™️ is not good enough.
@@ -18,27 +18,36 @@ Solstice Software will always be:
 This section is occasionally updated to include interesting information about Solstice Software's latest endeavors.
 
 
-### MFTAH
-![image](https://github.com/user-attachments/assets/a6fb8904-0590-4ed7-9910-6d19772cf8f1)
+### EquiKnox
+Turn hours of manual application sandboxing and security review into a repeatable, machine-generated security contract.
 
-"MFTAH" stands for Media For Tamper-Averse Humans. As its name suggests, it creates a media device containing one or more bootloaders, each using an encryption mechanism that make it resistant to subversive tampering.
+At its heart, _EquiKnox_ is a compiler that derives and enforces the behavioral security contract of software.
 
-Its acronym and "artwork" are both inspired by the Arabic word for "_key_".
+Today, putting an unfamiliar application into a restrictive sandbox can require a highly skilled security engineer to determine:
 
-This project was motivated by two desires:
-1. Is it possible to **FULLY ENCRYPT** an operating system, including its own bootloader?
-2. With a fully encrypted system and bootloader, can the Evil Maid attack be mitigated?
+- What files does it need?
+- What directories does it write?
+- What processes does it execute?
+- What network destinations does it contact?
+- What privileges/capabilities does it need?
+- What changes between application releases?
+- Which accesses are legitimate versus unexpected?
+- What can safely be denied?
 
-The answer to question 1 is a resounding _Yes_! This project is already working for primary Solstice Software development workstations and miscellaneous laptops (running various flavors of Linux).
+_EquiKnox_ turns that into:
 
-The answer to question 2 has yet to be fully determined, and will require more red-teaming after project completion.
+> **binary** &rarr; **analysis** &rarr; **security contract** &rarr; **human review** &rarr; **enforcement**
 
-#### What comes with it?
-- The source to make the EFI application for booting.
-- A full toolkit to create, decrypt, and modify MFTAH drives.
-  - GUI for Windows in C#.
-  - TUI for Unix systems in C (with ncurses).
-- A host of CLI scripts to perform more detailed and careful MFTAH maintenance.
+The most attractive use case may be third-party or opaque software, where the customer doesn't control the source code and therefore has difficulty determining what privileges the software genuinely requires and thus should be able to exercise.
 
-#### How does it work?
-![image](https://github.com/user-attachments/assets/0544ebf2-51c3-435d-94fe-4bfa447b57c0)
+It is not:
+
+- "AI antivirus"
+- generic anomaly detection
+- EDR
+- "learn what the program normally does and block anomalies"
+- a simple syscall monitor
+- a simple Linux sandbox
+- a simple AppArmor/seccomp frontend
+
+Stay tuned as the product is being developed and evaluated for commercial viability.
